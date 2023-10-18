@@ -21,7 +21,7 @@ namespace Mango.Services.CouponAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Mango.Services.CouponAPI.Models.Dto.CouponDto", b =>
+            modelBuilder.Entity("Mango.Services.CouponAPI.Models.Coupon", b =>
                 {
                     b.Property<int>("CouponId")
                         .ValueGeneratedOnAdd()
@@ -42,6 +42,22 @@ namespace Mango.Services.CouponAPI.Migrations
                     b.HasKey("CouponId");
 
                     b.ToTable("Coupons");
+
+                    b.HasData(
+                        new
+                        {
+                            CouponId = 1,
+                            CouponCode = "20OFF",
+                            DiscountAmount = 20.0,
+                            MinAmount = 40
+                        },
+                        new
+                        {
+                            CouponId = 2,
+                            CouponCode = "10OFF",
+                            DiscountAmount = 10.0,
+                            MinAmount = 20
+                        });
                 });
 #pragma warning restore 612, 618
         }
