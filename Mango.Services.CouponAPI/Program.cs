@@ -44,7 +44,7 @@ void ApplyMigration()
     {
         var _db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-        if(_db.Database.GetPendingMigrations().Count() > 0)
+        if(_db.Database.GetPendingMigrations().Count() < _db.Database.GetAppliedMigrations().Count())
         {
             _db.Database.Migrate();
         }
