@@ -138,6 +138,7 @@ namespace Mango.Services.CouponAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{id:int}")]
         public ResponseDto<object> Delete(int id)
         {
             try
@@ -148,7 +149,8 @@ namespace Mango.Services.CouponAPI.Controllers
 
                 return new ResponseDto<object>
                 {
-                    Result = null,
+                    Result = Enumerable.Empty<CouponDto>().FirstOrDefault(),
+                    IsSuccess = true
                 };
             }
             catch (Exception e)
