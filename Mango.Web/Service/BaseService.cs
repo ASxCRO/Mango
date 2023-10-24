@@ -75,6 +75,12 @@ namespace Mango.Web.Service
                             IsSuccess = false,
                             Message = "Server error"
                         };
+                    case System.Net.HttpStatusCode.BadRequest:
+                        return new()
+                        {
+                            IsSuccess = false,
+                            Message = "Server error"
+                        };
                     default:
                         var apiContent = await responseMessage.Content.ReadAsStringAsync();
                         return JsonConvert.DeserializeObject<ResponseDto?>(apiContent);
