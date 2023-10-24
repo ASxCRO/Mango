@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  mango.web:
+    image: ${DOCKER_REGISTRY-}mangoweb
+    build:
+      context: .
+      dockerfile: Mango.Web/Dockerfile
+
+  mango.service.authapi:
+    image: ${DOCKER_REGISTRY-}mangoserviceauthapi
+    build:
+      context: .
+      dockerfile: Mango.Service.AuthAPI/Dockerfile
+
+
+  mango.services.couponapi:
+    image: ${DOCKER_REGISTRY-}mangoservicescouponapi
+    build:
+      context: .
+      dockerfile: Mango.Services.CouponAPI/Dockerfile
+
